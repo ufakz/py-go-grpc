@@ -1,3 +1,7 @@
 # Generate Python gRPC bindings
 
 python -m grpc_tools.protoc -I.. --python_out=. --grpc_python_out=.   ../outliers.proto
+
+# Generate Go gRPC client bindings
+
+protoc --go_out=./pb --go_opt=paths=source_relative outliers.proto
