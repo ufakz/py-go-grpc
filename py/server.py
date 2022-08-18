@@ -10,9 +10,10 @@ from outliers_pb2_grpc import OutliersServicer, add_OutliersServicer_to_server
 
 
 def serve():
+    logging.info('server starting')
     server = grpc.server(ThreadPoolExecutor())
     add_OutliersServicer_to_server(OutliersServer(), server)
-    port = 9999
+    port = 50051
     server.add_insecure_port(f'[::]:{port}')
     server.start()
     logging.info('server ready on port %r', port)
